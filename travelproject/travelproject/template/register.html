@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            background-color: aqua;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration</h2>
+    <form method="post" action="register">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username"><br>
+        <input type="text" name="first_name" placeholder="Enter First name"><br>
+        <input type="text" name="last_name" placeholder="Enter Last name"><br>
+        <input type="email" name="email" placeholder="Enter Email"><br>
+        <input type="password" name="password" placeholder="Enter Password"><br>
+        <input type="password" name="password1" placeholder="Confirm Password"><br>
+        <input type="submit" value="Register">
+    </form>
+    {% for msg in messages %}
+        <h3>{{msg}}</h3>
+    {% endfor %}
+</body>
+</html>
